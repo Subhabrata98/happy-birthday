@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday!</title>
+  <style>
+    body {
+      background-color: #ffccff;
+      color: #6a0dad;
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      padding: 50px;
+      position: relative;
+      overflow: hidden;
+    }
+    h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+    p {
+      font-size: 24px;
+      margin-bottom: 30px;
+    }
+    .heart {
+      color: red;
+      font-size: 50px;
+      cursor: pointer;
+      animation: breathing 2s infinite;
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    @keyframes breathing {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+      100% { transform: scale(1); }
+    }
+    .flower {
+      position: absolute;
+      width: 200px;
+      animation: float 5s infinite;
+    }
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+      100% { transform: translateY(0); }
+    }
+    .butterfly {
+      position: absolute;
+      width: 60px;
+      animation: butterfly-fly 12s infinite;
+    }
+    @keyframes butterfly-fly {
+      0% { transform: translate(0, 0); }
+      25% { transform: translate(100px, -50px); }
+      50% { transform: translate(200px, 0); }
+      75% { transform: translate(100px, 50px); }
+      100% { transform: translate(0, 0); }
+    }
+    .sparkle {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      pointer-events: none;
+      opacity: 1;
+      animation: sparkle-animation 1s forwards;
+    }
+    @keyframes sparkle-animation {
+      0% { opacity: 1; transform: scale(1); }
+      100% { opacity: 0; transform: scale(3); }
+    }
+    .cake {
+      position: absolute;
+      bottom: -250px; 
+      left: 51%;
+      transform: translateX(-50%);
+      width: 300px;
+      margin: 0 auto;
+      cursor: pointer; 
+    }
+  </style>
+</head>
+<body>
+  <h1>Happy Birthday, My Love!</h1>
+  <p>Wishing you a day filled with joy and a year filled with love.</p>
+  <p>You're the best thing that ever happened to me!</p>
+  <p>Thank you for being you, and for all the moments we share.</p>
+  <p>Today is all about celebrating you and how special you are to me.</p>
+  <span class="heart" onclick="createSparkles()">&hearts;</span>
+
+  <img class="flower" src="flower1.png" alt="Flower" style="top: 100px; left: 50px;">
+  <img class="flower" src="flower2.png" alt="Flower" style="top: 200px; left: 300px;">
+  <img class="flower" src="flower3.png" alt="Flower" style="top: 300px; left: 150px;">
+
+  <img class="butterfly" src="butterfly.png" alt="Butterfly" style="top: 50px; left: 70px;">
+
+  <div class="cake-container"> 
+    <img class="cake" src="cake.png" alt="Birthday Cake" onclick="createCakeSparkles()"> 
+  </div>
+
+  <script>
+    function createSparkles() {
+      for (let i = 0; i < 30; i++) {
+        const sparkle = document.createElement('div');
+        sparkle.className = 'sparkle';
+        sparkle.style.left = Math.random() * window.innerWidth + 'px';
+        sparkle.style.top = Math.random() * window.innerHeight + 'px';
+        const colors = ['#FF69B4', '#FFC0CB', '#FFA07A', '#FFA500', '#FFFF00', '#008000', '#0000FF', '#4B0082', '#EE82EE']; 
+        sparkle.style.background = colors[Math.floor(Math.random() * colors.length)];
+        document.body.appendChild(sparkle);
+        setTimeout(() => {
+          sparkle.remove();
+        }, 1000); 
+      }
+    }
+
+    function createCakeSparkles() {
+      for (let i = 0; i < 50; i++) { 
+        const cakeSparkle = document.createElement('div');
+        cakeSparkle.className = 'sparkle';
+        cakeSparkle.style.left = Math.random() * window.innerWidth + 'px'; 
+        cakeSparkle.style.top = Math.random() * window.innerHeight + 'px'; 
+        const colors = ['#FFD700', '#F0E68C', '#FFC107', '#FF9800', '#FFA500', 
+                        '#FF69B4', '#FFC0CB', '#FFA07A', '#008000', '#0000FF', 
+                        '#4B0082', '#EE82EE', '#DDA0DD', '#9370DB', '#FF1493']; 
+        cakeSparkle.style.background = colors[Math.floor(Math.random() * colors.length)]; 
+        document.body.appendChild(cakeSparkle);
+        setTimeout(() => {
+          cakeSparkle.remove();
+        }, 1000);
+      }
+    }
+  </script>
+</body>
+</html>
